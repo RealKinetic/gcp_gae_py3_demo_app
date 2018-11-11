@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div id="dataflow">
+  <h2>Start Dataflow Job</h2>
+  <form action="?" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Job Name:</label>
+      <input id="name" name="name" class="form-control" />
+    </div>
+    <div class="button">
+      <button type="submit" class="btn btn-primary">Start Job</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

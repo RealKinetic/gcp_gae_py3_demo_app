@@ -1,0 +1,6 @@
+Flask==1.0.2
+google-cloud-pubsub
+google-cloud-datastore
+google-cloud-storage
+oauth2client
+google-api-python-client

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-sm-12">
+      <form action="/csvupload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="file" id="csvfile" name="csvfile" accept="text/csv" class="custom-file-input"> 
+          <label for="csvfile" class="custom-file-label">Choose a CSV to upload:</label>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
