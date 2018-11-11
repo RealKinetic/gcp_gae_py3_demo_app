@@ -31,3 +31,5 @@ MESSAGE_KIND = "Message"
 SECRETY_KEY = b'mysecret'
 
 CLOUD_STORAGE_BUCKET = "tempgcpbucket1"
+
+GITHUB_REPO = "realkinetic"
