@@ -1,7 +1,7 @@
 Python 3 Google App Engine Demo App
 ===================================
 
-### Local
+### Local dev
 
 Create a virtual environment for your python application.
 
