@@ -339,11 +339,24 @@ def insert_value_message(group, user):
     return publisher.publish(topic_path, data=mjson)
 
 
-USER_QUERY = "SELECT * FROM `{}.{}.high_values_users` LIMIT 1000".format(
+USER_QUERY = """
+SELECT * FROM `{}.{}.high_values_users`
+ORDER BY update_time DESC
+LIMIT 1000""".format(
     settings.GCP_PROJECT_ID, settings.BQ_DATASET_ID)
 
 
-GROUP_QUERY = "SELECT * FROM `{}.{}.high_values_groups` LIMIT 1000".format(
+# SELECT * FROM `{}.{}.high_values_groups` LIMIT 1000
+GROUP_QUERY = """
+SELECT g.group,
+       sum(g.total_value) as total_value,
+       max(g.processing_time) as processing_time,
+       g.window_start
+FROM `{}.{}.high_values_groups` g
+GROUP BY  g.group, g.window_start
+ORDER BY g.window_start DESC
+LIMIT 1000
+""".format(
     settings.GCP_PROJECT_ID, settings.BQ_DATASET_ID)
 
 
