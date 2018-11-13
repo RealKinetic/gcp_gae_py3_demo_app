@@ -15,7 +15,6 @@
 
 </head>
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark site-header sticky-top py-1">
     <a class="navbar-brand" href="#">Reak Kinetic - GCP Demo</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,41 +29,49 @@
           <a class="nav-link" href="{{ url_for('dataflow') }}">Batch Dataflow</a>
         </li>
         <li class="nav-item"> 
+          <a class="nav-link" href="{{ url_for('tasks') }}">Tasks</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link" href="{{ url_for('bigquery_results') }}">Big Query Results</a>
+        </li>
+        <li class="nav-item"> 
           <a class="nav-link" href="{{ url_for('config') }}">Configuration</a>
         </li>
       </ul>
     </div>
   </nav>
 
-<div class="container">
+  <div class="container">
 
-  <div class="row">
-    <div class="col-sm mt-4 mb-4">
-      <h1 class="display-4 mx-auto" style="width: 850px;">Real Kinetic GCP Demo Application</h1>
-    <hr />
+    <div class="row">
+      <div class="col-sm mt-4 mb-4">
+        <h1 class="display-4 mx-auto" style="width: 850px;">
+          Real Kinetic GCP Demo Application
+        </h1>
+      <hr />
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm">
-      {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          <div class="alert alert-primary" role="alert">
-            <ul class=flashes>
-            {% for category, message in messages %}
-              <li class="{{ category }}">{{ message }}</li>
-            {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
-      {% endwith %}
+    <div class="row">
+      <div class="col-sm">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="alert alert-primary" role="alert">
+              <ul class=flashes>
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+      </div>
     </div>
-  </div>
-  <div class="row">
-    {% block body %}{% endblock %}
-  </div>
+    <div class="row">
+      {% block body %}{% endblock %}
+    </div>
 
-</div>
+  </div>
 
 </body>
 </html>

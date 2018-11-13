@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div id="env_vars">
+  <h2>Big Query Results</h2>
+  <div class="container">
+    <div class="row mb-4">
+      <h3>User Results Table</h3>
+
+      <table class="table table-striped table-bordered table-hover table-sm">
+        <tr class="thead-dark">
+          <th>User</th>
+          <th>Total Value</th>
+          <th>Update Time</th>
+        </tr>
+        {% for result in user_results %} 
+          <tr>
+            <td>{{ result.user }}</td>
+            <td>{{ result.total_value }}</td>
+            <td>{{ result.update_time }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mb-4">
+      <h3>Group Results Table</h3>
+
+      <table class="table table-striped table-bordered table-hover table-sm">
+        <tr class="thead-dark">
+          <th>Group</th>
+          <th>Total Value</th>
+          <th>Window Start</th>
+          <th>Processing Time</th>
+        </tr>
+        {% for result in group_results %} 
+          <tr>
+            <td>{{ result.group }}</td>
+            <td>{{ result.total_value }}</td>
+            <td>{{ result.window_start }}</td>
+            <td>{{ result.processing_time }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
