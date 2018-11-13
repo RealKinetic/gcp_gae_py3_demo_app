@@ -19,12 +19,15 @@ if not IS_LOCAL:
     GAE_INSTANCE = os.getenv('GAE_INSTANCE', GAE_INSTANCE)
     GAE_DEPLOYMENT_ID = os.getenv('GAE_DEPLOYMENT_ID', GAE_DEPLOYMENT_ID)
 
+GCP_LOCATION = "us-central1"
+
 PUB_SUB_ENALBED = False
 
 if not IS_LOCAL:
     PUB_SUB_ENALBED = True
 
-MESSAGE_PUBSUB_TOPIC_NAME = "testop1"
+MESSAGE_ENTITY_PUBSUB_TOPIC_NAME = "testop1"
+MESSAGE_PUBSUB_TOPIC_NAME = "topstdem1"
 
 MESSAGE_KIND = "Message"
 
@@ -33,3 +36,7 @@ SECRETY_KEY = b'mysecret'
 CLOUD_STORAGE_BUCKET = "tempgcpbucket1"
 
 GITHUB_REPO = "realkinetic"
+
+TASK_QUEUE_NAME = "queue1"
+
+BQ_DATASET_ID = "gcpdemo"

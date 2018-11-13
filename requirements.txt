@@ -4,3 +4,5 @@ google-cloud-datastore
 google-cloud-storage
 oauth2client
 google-api-python-client
+google-cloud-tasks
+google-cloud-bigquery

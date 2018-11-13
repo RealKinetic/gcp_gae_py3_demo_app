@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="row mb-4">
+    <div id="dataflow">
+      <h2>Insert Tasks</h2>
+      <form action="?" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="number_of_groups">Number of Groups:</label>
+          <input type="number" id="number_of_groups" name="number_of_groups"
+                 min="1" max="10">
+        </div>
+        <div class="form-group">
+          <label for="number_of_users">Number of Users:</label>
+          <input type="number" id="number_of_users" name="number_of_users"
+                 min="1" max="100">
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary">Insert Tasks</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 mt-4 mb-4">
+      <div>
+        <a href="https://github.com/RealKinetic/gcp_dataflow_demo">Python 2 Dataflow Repo</a>
+      </div>
+  </div>
+</div>
+{% endblock %}
