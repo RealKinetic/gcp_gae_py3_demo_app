@@ -29,13 +29,13 @@ $ open http://localhost:8080
 
 ### Manual Deployment
 
-Deploy it
+Deploy it:
 
 ```sh
 $ gcloud app deploy
 ```
 
-Browse it
+Browse it:
 
 ```sh
 $ gcloud app browse
