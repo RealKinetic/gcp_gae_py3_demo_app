@@ -297,7 +297,6 @@ def tasks():
 
 @app.route('/value_task_handler', methods=['POST'])
 def value_task_handler():
-    """Log the request payload."""
     payload = json.loads(request.get_data(as_text=True))
 
     number_of_groups = int(payload["number_of_groups"])
@@ -314,14 +313,40 @@ def value_task_handler():
 
 @app.route('/group_values', methods=['POST'])
 def group_values():
-    """Log the request payload."""
     payload = json.loads(request.get_data(as_text=True))
 
     group = payload["group"]
     number_of_users = int(payload["number_of_users"])
 
-    for g in range(number_of_users):
-        user = USERS[g % 100]
+    v, r = divmod(number_of_users, 100)
+
+    if v == 0:
+        v = 1
+
+    if r == 0:
+        r = 1
+
+    for u in range(v):
+        app.logger.info("GROUP: {}".format(group))
+        p = json.dumps({
+            "group": group,
+            "number_of_users": r
+        })
+        app.logger.info("GROUP: {}, # OF USERS: {}".format(group, r))
+        insert_task('user_values', settings.TASK_QUEUE_NAME, p)
+
+    return 'Printed task payload: {}'.format(payload)
+
+
+@app.route('/user_values', methods=['POST'])
+def user_values():
+    payload = json.loads(request.get_data(as_text=True))
+
+    group = payload["group"]
+    number_of_users = int(payload["number_of_users"])
+
+    for u in range(number_of_users):
+        user = USERS[random.randint(0, 99)]
         app.logger.info("GROUP: {}, USER: {}".format(group, user))
         insert_value_message(group, user)
 
