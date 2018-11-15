@@ -320,14 +320,14 @@ def group_values():
 
     v, r = divmod(number_of_users, 100)
 
-    if v == 0:
+    if v <= 0:
         v = 1
 
-    if r == 0:
+    if r <= 0:
         r = 1
 
+    app.logger.info("GROUP: {}".format(group))
     for u in range(v):
-        app.logger.info("GROUP: {}".format(group))
         p = json.dumps({
             "group": group,
             "number_of_users": r
