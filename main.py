@@ -314,7 +314,6 @@ def value_task_handler():
 @app.route('/group_values', methods=['POST'])
 def group_values():
     payload = json.loads(request.get_data(as_text=True))
-
     group = payload["group"]
     number_of_users = int(payload["number_of_users"])
 
